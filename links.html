@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<style type="text/css">
+body{background-color: #495A6A;letter-spacing: 0.5px}	
+ul{margin: 20px 0}
+ul.menu li{display: inline-block;position:relative;padding: 0 20px;color: #fff;font-size: 20px;text-transform: uppercase;margin: 10px 15px;}
+a{color: #fff;text-decoration: none;}
+ul.menu li a{position: relative;display: inline-block;}
+
+/*Effect 1*/
+ul.effect1 li a:after{content: "]";margin-left: 10px;transform: translateX(-20px);}
+ul.effect1 li a:before{content: "[";margin-right: 10px;transform: translateX(20px);}
+ul.effect1 li a:after, ul.effect1 li a:before{display: inline-block;opacity: 0;transition: .2s linear}
+ul.effect1 li a:hover::after, ul.effect1 li a:hover::before{transform: translateX(0);opacity: 1;}
+
+/*Effect 2*/
+ul.effect2 li a{-webkit-perspective:1000px;perspective: 1000px;}
+ul.effect2 li a span {
+    background: #697a8a;
+    padding: 5px;
+    display: block;
+    transition: 1s ease-out;
+    transform-style:preserve-3d;
+    transform-origin: 50% 0;
+    -webkit-perspective:1000px;perspective: 1000px;
+}
+
+ul.effect2 li a span:after {
+    content: attr(data-hover);
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 5px;
+    background: #3c7cbb;
+        transform: rotateX(-90deg);
+    transform-origin: 50% 0;
+}
+ul.effect2 li a span:hover {
+    transform: rotateX(90deg);
+}
+
+/*Effect 3*/
+ul.effect3 li a:after{content: ""; width: 100%;position: absolute;left: 0;height: 4px;background: #2e3f4e;top: 100%;transform: translateY(12px);transition: .5s linear;opacity: 0;}
+ul.effect3 li:hover a:after{content: "";transform: translateY(2px);opacity: 1}
+
+/*Effect 4*/
+ul.effect4 li a:after{content: ""; width: 100%;position: absolute;left: 0;height: 4px;background: #2e3f4e;top: 100%;transform: translateY(-3px);transition: .5s linear;opacity: 0;}
+ul.effect4 li:hover a:after{content: "";transform: translateY(7px);opacity: 1}
+
+/*Effect 5*/
+ul.effect5 li a{height: 20px;overflow: hidden;display: inline-block;}
+ul.effect5 li a span{display: inline-block;transition: .5s ease-out;padding: 0 2px; -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;}
+ul.effect5 li a span:after{content: attr(data-hover);position: absolute;top: 100%;left: 0;font-weight: 600}
+ul.effect5 li a span:hover{transform: translateY(-24px); }
+
+/*Effect 6*/
+ul.effect6 li{position: relative;}
+ul.effect6 li a{padding: 5px 0;display: inline-block;}
+ul.effect6 li:before{content: '';position: absolute;top: 0px;height: 2px;width: 100%;left: 0;background: #fff;transition: .3s linear}
+ul.effect6 li:after{content: '';top: 0px;height: 2px; width:2px;position: absolute;left: 0;background: #fff;transition: .3s linear}
+ul.effect6 li:hover::before{top: 100%;}
+ul.effect6 li:hover::after{height:100%;}
+
+/*Effect 7*/
+ul.effect7 li {position: relative;}
+ul.effect7 li a{padding: 5px 0;display: inline-block;}
+ul.effect7 li:after{content: '';width: 100%;position: absolute;top: 100%;height: 2px;background: #fff;left: 0;transition: .3s linear}
+ul.effect7 li:before{content:'';width: 100%; height: 2px;position: absolute;background: #fff;left:0;top:100%;transition: .3s linear;opacity: 0}
+ul.effect7 li:hover::before{top:0;opacity: 1;transform: scale(1.1);}
+ul.effect7 li:hover::after{transform: scale(1.1);}
+
+/*Effect 8*/
+ul.effect8 li{position: relative;}
+ul.effect8 li a {display: inline-block;padding:5px 0;}
+ul.effect8 li:after{content:"";border: 2px solid #fff;position: absolute;width:100%;height: 100%;left: 0;top: 3px;transform: translate(-5px, -5px);opacity: 1;transition: .3s linear}
+ul.effect8 li:hover::after{opacity: 0;transform: translate(-10px, 0px);}
+ul.effect8 li:before{content:"";border: 2px solid #000;position: absolute;width:100%;height: 100%;left: 0;top: 3px;transform: translate(5px, -10px);opacity: 0;transition: .3s linear;z-index: 1}
+ul.effect8 li:hover::before{opacity: 1; transform: translate(-5px, -5px);}
+
+/*Effect 9*/
+ul.effect9 li{position: relative;padding: 5px;}
+ul.effect9 li:before{content: '';position: absolute;height: 1px;background: #fff;width: 100%;top: 0;left: 0;transition: .3s linear}
+ul.effect9 li:hover::before{height: 4px}
+ul.effect9 li:after{content: '';height: 1px;background: #fff;position: absolute;left: 0;width: 100%;bottom: 0;opacity: 0;transition: .3s linear}
+ul.effect9 li:hover::after{opacity: 1;bottom: -30px;}
+ul.effect9 li a span{display: block;position: absolute;font-size: 10px;transform: translate(-50%, -25px);left: 50%;opacity: 0;transition: .3s linear}
+ul.effect9 li:hover a span{opacity: 1; transform: translate(-50%, 10px);}
+
+/*Effect 10*/
+ul.effect10 li a span{background: #273b4c;display: inline-block;transform: translateX(0);transition: transform .5s ease-out;padding:10px 30px;}
+ul.effect10 li a{position: relative;display: block;overflow: hidden;transition: transform .5s ease-out}
+ul.effect10 li a:after{content: attr(data-hover);background: #fff;position: absolute;color: #000;left: 0;top: 0;transform: translateX(-100%);transition: transform .5s ease-out;padding:10px 30px}
+ul.effect10 li a:hover::after{transform: translateX(0);}
+ul.effect10 li a:hover span{transform: translateX(100%);}
+
+/*Effect 11*/
+ul.effect11 li a{position: relative;border-top: 2px solid #384958;color: #384958;display: block;}
+ul.effect11 li a:after{content: attr(data-hover);position: absolute;left: 0px;top: 0px;color:#fff;max-width: 0;overflow: hidden;transition: max-width .5s linear;border-bottom: 2px solid transparent;height: 100%;}
+ul.effect11 li a:hover::after{max-width: 100%;border-bottom: 2px solid #fff}
+
+/*Effect 12*/
+ul.effect12 li a{display: block;position: relative;}
+ul.effect12 li a:after, ul.effect12 li a:before{content: "";position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: -1;opacity: 0;border-radius: 50%;transition: .5s opacity}
+ul.effect12 li a:after{height: 58px;width: 58px;border: 1px solid #425261;}
+ul.effect12 li a:before{height: 40px;width: 40px;border: 5px solid #425261;}
+ul.effect12 li a:hover::before, ul.effect12 li a:hover::after{opacity: 1}
+
+/*Effect 13*/
+ul.effect13 li a{position: relative;}
+ul.effect13 li:hover a{color: #283b4c;}
+ul.effect13 li a:after{position: absolute;content: '.';left: 50%;top: 63%;opacity: 0;color:#fff;transition: .3s linear}
+ul.effect13 li a:hover:after{opacity: 1;text-shadow: 10px 0 #fff, -10px 0 #fff}
+
+/*Effect 14*/
+ul.effect14 li{padding: 0}
+ul.effect14 li a{padding: 0 20px;}
+ul.effect14 li a::after, ul.effect14 li a::before{content: "";display: block;height: 2px;width: 24px;background: #fff;position: absolute;opacity: 0.2;transition: all .5s}
+ul.effect14 li a::before{right: 0;transform: rotate(90deg) translateX(50%);}
+ul.effect14 li a::after{left: 0;transform: rotate(90deg) translateX(-50%);}
+ul.effect14 li a:hover::after{opacity:1;transform: rotate(0) ; left: 40% ;top:0;}
+ul.effect14 li a:hover::before{opacity: 1;transform: rotate(0) translateY(-50%);right: 40%;top: 100%}
+
+/*Effect 15*/
+ul.effect15 li a{position: relative;color: rgba(0,0,0,.2);}
+ul.effect15 li a:before{content: attr(data-hover);position: absolute;color:#fff;left:0;transition: transform .3s, opacity .3s}
+ul.effect15 li a:hover::before{opacity: 0;transform: scale(0.9);}
+
+/*Effect 16*/
+ul.effect16 li a{text-shadow: 0 0 1px rgba(111,134,134,0.3);color:#6f8686;}
+ul.effect16 li a:before{content: attr(data-hover);position: absolute;top:20px;left:0;top:0;transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);opacity: 0;transition: .3s linear}
+ul.effect16 li a:hover::before{transform: rotate(0) translateX(0) translateY(0) scale(1); opacity: 1;color: #fff;
+	z-index: 1}
+
+/*Effect 17*/	
+ul.effect17 li a:after{content:""; position: absolute;height: 2px; width: 100%; left:0; background-color: #fff;bottom: 0;transform: translateY(15px); transition: opacity 1s, transform 1s ;opacity: 0}
+ul.effect17 li a:hover:after{transform: translateY(5px);opacity: 1;}
+ul.effect17 li a{color: #232f3a}
+ul.effect17 li a:before{content:attr(data-hover); position: absolute; left:0;transform: translateY(0px); transition: opacity 1s, transform 1s ;opacity: 1}
+ul.effect17 li a:hover:before{transform: translateY(-2px);opacity: 0;color: #fff}
+
+/*Effect 18*/
+ul.effect18 li a{padding: 10px;}
+ul.effect18 li a:after{content: "";height: 5%;width: 100%;left: 0;bottom: 0;position: absolute;background: #0082ec;transition: .5s ease-in-out;z-index: -1}
+ul.effect18 li a:hover::after{content: "";height: 100%;} 
+
+/*Effect 19*/
+ul.effect19{margin: 30px 0}
+ul.effect19 li a{padding: 10px;}
+ul.effect19 li a:after, ul.effect19 li a:before{content: "";height:2px;width: 100%;background: #fff;position: absolute;left: 0;z-index: -1;transition: .3s linear}
+ul.effect19 li a:after{top: 0;}	
+ul.effect19 li a:before{bottom: 0;}
+ul.effect19 li a:hover{color: #000;transition: .3s linear}
+ul.effect19 li a:hover:after{transform: rotate(45deg) translateY(-50%);top: 50%;}
+ul.effect19 li a:hover:before{transform: rotate(-45deg) translateY(-50%);top: 50%;}	
+
+/*Effect 20*/
+ul.effect20 li a{webkit-perspective: 800px;-moz-perspective: 800px;perspective: 800px;width: 200px;}
+ul.effect20 li a span{position: relative;display: block;text-align: center;width: 100%;padding: 0 14px;background: #e35041;-webkit-transition: -webkit-transform 0.4s, background 0.4s;-moz-transition: -moz-transform 0.4s, background 0.4s;transition: transform 0.4s, background 0.4s;-webkit-transform-style: preserve-3d;-moz-transform-style: preserve-3d;transform-style: preserve-3d;-webkit-transform-origin: 50% 50% -114px;-moz-transform-origin: 50% 50% -114px;transform-origin: 50% 50% -114px;}
+ul.effect20 li a span::before{position: absolute;top: 0;left: 100%;width: 100%;height: 100%;background: #b53a2d;content: attr(data-hover);-webkit-transition: background 0.4s;-moz-transition: background 0.4s;transition: background 0.4s;-webkit-transform: rotateY(90deg);-moz-transform: rotateY(90deg);transform: rotateY(90deg);-webkit-transform-origin: 0 50%;-moz-transform-origin: 0 50%;transform-origin: 0 50%;pointer-events: none;}
+ul.effect20 li a:hover span{background: #b53a2d;-webkit-transform: rotateY(-90deg);-moz-transform: rotateY(-90deg);transform: rotateY(-90deg);}
+ul.effect20 li a:hover span::before{background: #ef5e50;}
+
+/*Effect 21*/
+ul.effect21 li:hover{transform: rotate(360deg);}
+ul.effect21 li{position: relative;perspective: 200;-webkit-perspective: 200;transform-origin:50% 50%;transform-style: preserve-3d;
+transition: 1s ease all;}
+
+/*Effect 22*/
+ul.effect22 li a span{display: block;position: relative;background: #314250;line-height: 32px;padding: 0 10px;box-shadow: 0px -2px 0px 0 #1a2229}
+ul.effect22 li a span:before{content: attr(data-hover);position: absolute;left:0;top:0;padding: 0 10px;background: #1a2329;transition: .5s linear;transform-origin: top right;transform: rotateX(-270deg);}
+ul.effect22 li a span:hover:before{transform: rotateX(0deg);}
+
+/*Effect 23*/
+ul.effect23 li a{display: block;color:#212c35;transition: color .3s;position: relative;padding: 5px 0}
+ul.effect23 li a:hover{color: #fff;}
+ul.effect23 li a:after, ul.effect23 li a:before{content: "";height:2px;width: 100%;position: absolute;background: #fff;left:0;opacity: 0;transition: .3s linear}
+ul.effect23 li a:before{top:0;transform: translateY(-10px)}
+ul.effect23 li a:after{bottom: 0;transform: translateY(10px);}
+ul.effect23 li a:hover:after, ul.effect23 li a:hover:before{
+transform: translateY(0);
+opacity: 1
+	}
+
+</style>
+</head>
+<body>
+	<ul class="effect1 menu">
+		<li><a href="#">Menu 1</a></li>
+		<li><a href="#">Menu 2</a></li>
+		<li><a href="#">Menu 3</a></li>
+		<li><a href="#">Menu 4</a></li>
+		<li><a href="#">Menu 5</a></li>
+	</ul>
+	<ul class="effect2 menu">
+		<li><a href="#"><span data-hover="Menu 1">Menu 1</span></a></li>
+		<li><a href="#"><span data-hover="Menu 2">Menu 2</span></a></li>
+		<li><a href="#"><span data-hover="Menu 3">Menu 3</span></a></li>
+		<li><a href="#"><span data-hover="Menu 4">Menu 4</span></a></li>
+		<li><a href="#"><span data-hover="Menu 5">Menu 5</span></a></li>
+	</ul>
+	<ul class="effect3 menu">
+		<li><a href="#">Menu 1</a></li>
+		<li><a href="#">Menu 2</a></li>
+		<li><a href="#">Menu 3</a></li>
+		<li><a href="#">Menu 4</a></li>
+		<li><a href="#">Menu 5</a></li>
+	</ul>
+	<ul class="effect4 menu">
+		<li><a href="#">Menu 1</a></li>
+		<li><a href="#">Menu 2</a></li>
+		<li><a href="#">Menu 3</a></li>
+		<li><a href="#">Menu 4</a></li>
+		<li><a href="#">Menu 5</a></li>
+	</ul>
+	<ul class="effect5 menu">
+		<li><a href="#"><span data-hover="Menu 1">Menu 1</span></a></li>
+		<li><a href="#"><span data-hover="Menu 2">Menu 2</span></a></li>
+		<li><a href="#"><span data-hover="Menu 3">Menu 3</span></a></li>
+		<li><a href="#"><span data-hover="Menu 4">Menu 4</span></a></li>
+		<li><a href="#"><span data-hover="Menu 5">Menu 5</span></a></li>
+	</ul>
+	<ul class="effect6 menu">
+		<li><a href="#">Menu 1</a></li>
+		<li><a href="#">Menu 2</a></li>
+		<li><a href="#">Menu 3</a></li>
+		<li><a href="#">Menu 4</a></li>
+		<li><a href="#">Menu 5</a></li>
+	</ul>
+	<ul class="effect7 menu">
+		<li><a href="#">Menu 1</a></li>
+		<li><a href="#">Menu 2</a></li>
+		<li><a href="#">Menu 3</a></li>
+		<li><a href="#">Menu 4</a></li>
+		<li><a href="#">Menu 5</a></li>
+	</ul>
+	<ul class="effect8 menu">
+		<li><a href="#">Menu 1</a></li>
+		<li><a href="#">Menu 2</a></li>
+		<li><a href="#">Menu 3</a></li>
+		<li><a href="#">Menu 4</a></li>
+		<li><a href="#">Menu 5</a></li>
+	</ul>
+	<ul class="effect9 menu">
+		<li><a href="#">Menu 1 <span>Content</span></a></li>
+		<li><a href="#">Menu 2 <span>Content</span></a></li>
+		<li><a href="#">Menu 3 <span>Content</span></a></li>
+		<li><a href="#">Menu 4 <span>Content</span></a></li>
+		<li><a href="#">Menu 5 <span>Content</span></a></li>
+	</ul>
+	<ul class="effect10 menu">
+		<li><a href="#" data-hover="Menu 1"><span>Menu 1</span></a></li>
+		<li><a href="#" data-hover="Menu 2"><span>Menu 2</span></a></li>
+		<li><a href="#" data-hover="Menu 3"><span>Menu 3</span></a></li>
+		<li><a href="#" data-hover="Menu 4"><span>Menu 4</span></a></li>
+		<li><a href="#" data-hover="Menu 5"><span>Menu 5</span></a></li>
+	</ul>
+	<ul class="effect11 menu">
+		<li><a href="#" data-hover="Menu 1"><span>Menu 1</span></a></li>
+		<li><a href="#" data-hover="Menu 2"><span>Menu 2</span></a></li>
+		<li><a href="#" data-hover="Menu 3"><span>Menu 3</span></a></li>
+		<li><a href="#" data-hover="Menu 4"><span>Menu 4</span></a></li>
+		<li><a href="#" data-hover="Menu 5"><span>Menu 5</span></a></li>
+	</ul>
+	<ul class="effect12 menu">
+		<li><a href="#" data-hover="Menu 1"><span>Menu 1</span></a></li>
+		<li><a href="#" data-hover="Menu 2"><span>Menu 2</span></a></li>
+		<li><a href="#" data-hover="Menu 3"><span>Menu 3</span></a></li>
+		<li><a href="#" data-hover="Menu 4"><span>Menu 4</span></a></li>
+		<li><a href="#" data-hover="Menu 5"><span>Menu 5</span></a></li>
+	</ul>
+	<ul class="effect13 menu">
+		<li><a href="#">Menu 1</a></li>
+		<li><a href="#">Menu 2</a></li>
+		<li><a href="#">Menu 3</a></li>
+		<li><a href="#">Menu 4</a></li>
+		<li><a href="#">Menu 5</a></li>
+	</ul>
+	<ul class="effect14 menu">
+		<li><a href="#">Menu 1</a></li>
+		<li><a href="#">Menu 2</a></li>
+		<li><a href="#">Menu 3</a></li>
+		<li><a href="#">Menu 4</a></li>
+		<li><a href="#">Menu 5</a></li>
+	</ul>
+	<ul class="effect15 menu">
+		<li><a href="#" data-hover="Menu 1">Menu 1</a></li>
+		<li><a href="#" data-hover="Menu 2">Menu 2</a></li>
+		<li><a href="#" data-hover="Menu 3">Menu 3</a></li>
+		<li><a href="#" data-hover="Menu 4">Menu 4</a></li>
+		<li><a href="#" data-hover="Menu 5">Menu 5</a></li>
+	</ul>
+	<ul class="effect16 menu">
+		<li><a href="#" data-hover="Menu 1">Menu 1</a></li>
+		<li><a href="#" data-hover="Menu 2">Menu 2</a></li>
+		<li><a href="#" data-hover="Menu 3">Menu 3</a></li>
+		<li><a href="#" data-hover="Menu 4">Menu 4</a></li>
+		<li><a href="#" data-hover="Menu 5">Menu 5</a></li>
+	</ul>
+	<ul class="effect17 menu">
+		<li><a href="#" data-hover="Menu 1">Menu 1</a></li>
+		<li><a href="#" data-hover="Menu 2">Menu 2</a></li>
+		<li><a href="#" data-hover="Menu 3">Menu 3</a></li>
+		<li><a href="#" data-hover="Menu 4">Menu 4</a></li>
+		<li><a href="#" data-hover="Menu 5">Menu 5</a></li>
+	</ul>
+	<ul class="effect18 menu">
+		<li><a href="#" data-hover="Menu 1">Menu 1</a></li>
+		<li><a href="#" data-hover="Menu 2">Menu 2</a></li>
+		<li><a href="#" data-hover="Menu 3">Menu 3</a></li>
+		<li><a href="#" data-hover="Menu 4">Menu 4</a></li>
+		<li><a href="#" data-hover="Menu 5">Menu 5</a></li>
+	</ul>
+	<ul class="effect19 menu">
+		<li><a href="#" data-hover="Menu 1">Menu 1</a></li>
+		<li><a href="#" data-hover="Menu 2">Menu 2</a></li>
+		<li><a href="#" data-hover="Menu 3">Menu 3</a></li>
+		<li><a href="#" data-hover="Menu 4">Menu 4</a></li>
+		<li><a href="#" data-hover="Menu 5">Menu 5</a></li>
+	</ul>
+	<ul class="effect20 menu">
+		<li><a href="#"><span data-hover="Menu 1">Menu 1</span></a></li>
+		<li><a href="#"><span data-hover="Menu 2">Menu 2</span></a></li>
+		<li><a href="#"><span data-hover="Menu 3">Menu 3</span></a></li>
+		<li><a href="#"><span data-hover="Menu 4">Menu 4</span></a></li>
+		<li><a href="#"><span data-hover="Menu 5">Menu 5</span></a></li>
+	</ul>
+	<ul class="effect21 menu">
+		<li><a href="#"><span data-hover="Menu 1">Menu 1</span></a></li>
+		<li><a href="#"><span data-hover="Menu 2">Menu 2</span></a></li>
+		<li><a href="#"><span data-hover="Menu 3">Menu 3</span></a></li>
+		<li><a href="#"><span data-hover="Menu 4">Menu 4</span></a></li>
+		<li><a href="#"><span data-hover="Menu 5">Menu 5</span></a></li>
+	</ul>
+	<ul class="effect22 menu">
+		<li><a href="#"><span data-hover="Menu 1">Menu 1</span></a></li>
+		<li><a href="#"><span data-hover="Menu 2">Menu 2</span></a></li>
+		<li><a href="#"><span data-hover="Menu 3">Menu 3</span></a></li>
+		<li><a href="#"><span data-hover="Menu 4">Menu 4</span></a></li>
+		<li><a href="#"><span data-hover="Menu 5">Menu 5</span></a></li>
+	</ul>
+	<ul class="effect23 menu">
+		<li><a href="#">Menu 1</a></li>
+		<li><a href="#">Menu 2</a></li>
+		<li><a href="#">Menu 3</a></li>
+		<li><a href="#">Menu 4</a></li>
+		<li><a href="#">Menu 5</a></li>
+	</ul>
+
+
+
+</body>
+</html>
